@@ -6,10 +6,22 @@
 * Go to New -> Notebooks -> Upload and Select the .ipynb file in the Repo
 * Once the file is uploades, open the notebook and run it.
 
-## To run the notebook on local
+## To run the Notebook on local machine
 * Clone or Download the repo.
 * Install Anaconda https://docs.continuum.io/anaconda/install
 * Once the installation is done, open command prompt, go to the directory where .ipynb file is located and run the command Jupyter notebook
+* Once the notebook opens replace following code 
+  from azureml import Workspace
+  ws = Workspace()
+  ds = ws.datasets['pima-data.csv']
+  df = ds.to_dataframe()
 
-Azure ML Experiment 
+  to
+  df = pd.read_csv("pima-data.csv") # Load data
+* Run the notebook
+
+
+## Azure ML Experiment 
+* Open Azure Machine learning studio.
+* Go to New -> Dataset -> Upload the data file
 
