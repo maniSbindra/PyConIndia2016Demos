@@ -31,6 +31,7 @@ to
 * Open Azure Machine learning studio.
 * Create Azure experiment as shown in the Screenshot.
 * Execute Python Script - Clean Data 
+      
       import matplotlib
       matplotlib.use('agg')
       import numpy as np
