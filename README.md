@@ -18,13 +18,13 @@
 
 to
 
- `from azureml import Workspace`
- 
- `ws = Workspace()`
- 
- `ds = ws.datasets['pima-data.csv']`
- 
- `df = ds.to_dataframe()`
+    `from azureml import Workspace`
+    
+    `ws = Workspace()`
+    
+    `ds = ws.datasets['pima-data.csv']`
+    
+    `df = ds.to_dataframe()`
 
  
 ## Azure ML Experiment 
@@ -37,6 +37,7 @@ to
       import numpy as np
       import matplotlib.pyplot as plt
       import pandas as pd
+      
       def azureml_main(df = None):
           corr = df.corr()    # data frame correlation function
           fig, ax = plt.subplots(figsize=(10, 10))
