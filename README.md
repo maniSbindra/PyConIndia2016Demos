@@ -28,35 +28,33 @@ to
 * Open Azure Machine learning studio.
 * Create Azure experiment as shown in the Screenshot.
 * Execute Python Script - Clean Data 
-  import matplotlib
-  matplotlib.use('agg')
+      import matplotlib
+      matplotlib.use('agg')
+      import numpy as np
+      import matplotlib.pyplot as plt
+      import pandas as pd
+      def azureml_main(df = None):
+          corr = df.corr()    # data frame correlation function
+          fig, ax = plt.subplots(figsize=(10, 10))
+          ax.matshow(corr)   # color code the rectangles by correlation value
+          plt.xticks(range(len(corr.columns)), corr.columns)  # draw x tick marks
+          plt.yticks(range(len(corr.columns)), corr.columns)  # draw y tick marks
+          fig.savefig("figure1.png")
+          # Execution logic goes here
+          del df['skin']
+          
+          corr = df.corr()    # data frame correlation function
+          fig, ax = plt.subplots(figsize=(10, 10))
+          ax.matshow(corr)   # color code the rectangles by correlation value
+          plt.xticks(range(len(corr.columns)), corr.columns)  # draw x tick marks
+          plt.yticks(range(len(corr.columns)), corr.columns)  # draw y tick marks
+          fig.savefig("figure2.png")
+          
+          diabetes_map = {True : 1, False : 0}
+          df['diabetes'] = df['diabetes'].map(diabetes_map)
+          # Return value must be of a sequence of pandas.DataFrame
 
-  import numpy as np
-  import matplotlib.pyplot as plt
-  import pandas as pd
-
-  def azureml_main(df = None):
-      corr = df.corr()    # data frame correlation function
-      fig, ax = plt.subplots(figsize=(10, 10))
-      ax.matshow(corr)   # color code the rectangles by correlation value
-      plt.xticks(range(len(corr.columns)), corr.columns)  # draw x tick marks
-      plt.yticks(range(len(corr.columns)), corr.columns)  # draw y tick marks
-      fig.savefig("figure1.png")
-      # Execution logic goes here
-      del df['skin']
-      
-      corr = df.corr()    # data frame correlation function
-      fig, ax = plt.subplots(figsize=(10, 10))
-      ax.matshow(corr)   # color code the rectangles by correlation value
-      plt.xticks(range(len(corr.columns)), corr.columns)  # draw x tick marks
-      plt.yticks(range(len(corr.columns)), corr.columns)  # draw y tick marks
-      fig.savefig("figure2.png")
-      
-      diabetes_map = {True : 1, False : 0}
-      df['diabetes'] = df['diabetes'].map(diabetes_map)
-      # Return value must be of a sequence of pandas.DataFrame
-
-      return df,
+          return df,
 
 * Execute Python Script - Test Data 
 
