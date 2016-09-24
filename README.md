@@ -19,8 +19,11 @@
 to
 
  `from azureml import Workspace`
+ 
  `ws = Workspace()`
+ 
  `ds = ws.datasets['pima-data.csv']`
+ 
  `df = ds.to_dataframe()`
 
  
@@ -40,9 +43,7 @@ to
           plt.xticks(range(len(corr.columns)), corr.columns)  # draw x tick marks
           plt.yticks(range(len(corr.columns)), corr.columns)  # draw y tick marks
           fig.savefig("figure1.png")
-          # Execution logic goes here
           del df['skin']
-          
           corr = df.corr()    # data frame correlation function
           fig, ax = plt.subplots(figsize=(10, 10))
           ax.matshow(corr)   # color code the rectangles by correlation value
