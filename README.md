@@ -14,14 +14,14 @@
 * Go to New -> Notebooks -> Upload and Select the .ipynb file in the Repo
 * Once the file is uploades, open the notebook.
 * Once the notebook opens replace following code 
-   df = pd.read_csv("pima-data.csv") # Load data
+   'df = pd.read_csv("pima-data.csv") # Load data'
 
 to
 
-  from azureml import Workspace
+ 'from azureml import Workspace
   ws = Workspace()
   ds = ws.datasets['pima-data.csv']
-  df = ds.to_dataframe()
+  df = ds.to_dataframe()'
 
  
 ## Azure ML Experiment 
